@@ -1,120 +1,896 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rajkumar Palanivel — Portfolio</title>
-  <link rel="stylesheet" href="styles.css" />
-  <meta name="description" content="Portfolio and CV of Rajkumar Palanivel — Project Coordinator / Case Handler candidate" />
+  <meta charset="UTF-8" />
+  <title>Rajkumar Palanivel | Project Coordinator Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Project Coordinator portfolio of Rajkumar Palanivel: Agile/Waterfall, Jira/Trello/Monday, MSc Project Management.">
+  <meta property="og:title" content="Rajkumar Palanivel | Project Coordinator Portfolio">
+  <meta property="og:description" content="Agile & Waterfall project coordination, risk/RAID, reporting, Jira/Trello/Monday.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta name="twitter:card" content="summary_large_image">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f8f9fa;
+      --card: #ffffff;
+      --accent: #0ea5e9;
+      --accent-soft: rgba(14, 165, 233, 0.1);
+      --accent-strong: #0284c7;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.08);
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --transition-fast: 180ms ease-out;
+      --transition-med: 240ms ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #f0f9ff, #ffffff 60%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 24px;
+      display: flex;
+      justify-content: center;
+      scroll-behavior: smooth;
+    }
+
+    .page-shell {
+      width: 100%;
+      max-width: 1240px;
+      border-radius: 28px;
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.05);
+      background: linear-gradient(to bottom right, rgba(240, 249, 255, 0.5), rgba(255, 255, 255, 0.9)),
+                  #ffffff;
+    }
+
+    .noise-overlay {
+      pointer-events: none;
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      mix-blend-mode: multiply;
+      background-image: url("https://images.pexels.com/photos/7130496/pexels-photo-7130496.jpeg?auto=compress&cs=tinysrgb&w=800");
+      background-size: cover;
+      background-position: center;
+      filter: grayscale(1) brightness(1.2);
+    }
+
+    .layout {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+
+    nav.nav {
+      grid-column: 1 / -1;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 26px 12px;
+      backdrop-filter: blur(22px);
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-name {
+      font-size: 0.9rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      color: inherit;
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 4px;
+      cursor: pointer;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent), #818cf8);
+      border-radius: 999px;
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      background: rgba(220, 252, 231, 0.8);
+      color: #15803d;
+      font-size: 0.75rem;
+    }
+
+    .pill-status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 12px rgba(34, 197, 94, 0.9);
+    }
+
+    .btn-ghost {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      background: rgba(249, 250, 251, 0.9);
+      color: var(--muted);
+      cursor: pointer;
+      transition: border-color var(--transition-fast), background var(--transition-fast),
+        color var(--transition-fast), transform 120ms ease-out;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(209, 213, 219, 0.9);
+      color: var(--text);
+      transform: translateY(-1px);
+      background: rgba(243, 244, 246, 0.95);
+    }
+
+    .left-pane,
+    .right-pane {
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .left-pane {
+      border-right: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .right-pane {
+      background: rgba(249, 250, 251, 0.5);
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      font-size: clamp(1.9rem, 2.3vw + 1rem, 2.6rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      background: rgba(249, 250, 251, 0.9);
+      color: var(--muted);
+      backdrop-filter: blur(14px);
+    }
+
+    .badge.highlight {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .btn-primary {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: var(--radius-pill);
+      padding: 10px 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--accent-strong), #3b82f6);
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+      transition: transform 140ms ease-out, box-shadow 140ms ease-out, filter 140ms ease-out;
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.4);
+      filter: brightness(1.05);
+    }
+
+    .btn-primary span.icon {
+      display: inline-flex;
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.25);
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+    }
+
+    .btn-secondary {
+      border-radius: var(--radius-pill);
+      padding: 9px 16px;
+      font-size: 0.82rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      background: rgba(249, 250, 251, 0.9);
+      color: var(--muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: border-color var(--transition-fast), background var(--transition-fast),
+        color var(--transition-fast), transform 120ms ease-out;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(209, 213, 219, 0.9);
+      color: var(--text);
+      transform: translateY(-1px);
+      background: rgba(243, 244, 246, 0.95);
+    }
+
+    .btn-secondary span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--muted);
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+
+    h3 {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 400;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      padding: 16px 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(14, 165, 233, 0.08), transparent 55%);
+      mix-blend-mode: multiply;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-med);
+    }
+
+    .card:hover::after {
+      opacity: 1;
+    }
+
+    .profile-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .pill {
+      font-size: 0.75rem;
+      padding: 5px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(229, 231, 235, 0.8);
+      color: var(--muted);
+      background: rgba(249, 250, 251, 0.9);
+      transition: border-color 160ms ease-out, transform 160ms ease-out, box-shadow 160ms ease-out;
+    }
+
+    .pill.primary {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .pill:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+    }
+
+    .experience-item {
+      margin-bottom: 16px;
+    }
+
+    .experience-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .exp-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .exp-role {
+      font-weight: 400;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .exp-company {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-top: 2px;
+    }
+
+    .exp-meta {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    li {
+      position: relative;
+      padding-left: 16px;
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .tagline {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .footer {
+      grid-column: 1 / -1;
+      border-top: 1px solid rgba(229, 231, 235, 0.8);
+      padding: 12px 24px;
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      backdrop-filter: blur(16px);
+      background: rgba(249, 250, 251, 0.8);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 420ms ease-out, transform 420ms ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .summary-list {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .summary-list li {
+      font-size: 0.88rem;
+      color: var(--text);
+      margin-bottom: 8px;
+      padding-left: 16px;
+    }
+
+    @media (max-width: 1024px) {
+      body {
+        padding: 12px;
+      }
+
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .left-pane {
+        border-right: none;
+        border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+      }
+    }
+
+    @media (max-width: 720px) {
+      nav.nav {
+        padding: 12px 14px 8px;
+        flex-wrap: wrap;
+        row-gap: 8px;
+      }
+
+      .left-pane,
+      .right-pane {
+        padding: 16px 18px;
+      }
+
+      .page-shell {
+        border-radius: 18px;
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 5vw + 1rem, 2.2rem);
+      }
+
+      .nav-links {
+        gap: 12px;
+        font-size: 0.78rem;
+      }
+
+      .hero-actions {
+        width: 100%;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-duration: 0.001ms !important;
+        transition-duration: 0.001ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <div class="branding">
-        <h1>Rajkumar Palanivel</h1>
-        <p class="sub">Project Coordinator • Case Handler / Case Administrator</p>
-      </div>
-      <nav class="contact">
-        <a href="tel:+447776912786">+44 7776912786</a>
-        <a href="mailto:rajkumarpalanivelofficial@gmail.com">rajkumarpalanivelofficial@gmail.com</a>
-        <a href="#linkedin">LinkedIn</a>
+  <div class="page-shell">
+    <div class="noise-overlay"></div>
+
+    <div class="layout">
+      <nav class="nav" role="navigation">
+        <div class="nav-left">
+          <div class="nav-name">Rajkumar Palanivel</div>
+        </div>
+        <div class="nav-links">
+          <a href="#profile">Profile</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#education">Education</a>
+        </div>
+        <div class="nav-right">
+          <div class="pill-status">
+            <span class="pill-status-dot"></span>
+            Open to opportunities
+          </div>
+          <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+            Contact
+          </button>
+        </div>
       </nav>
+
+      <main class="left-pane">
+        <div class="hero reveal" id="profile">
+          <h1>Rajkumar Palanivel</h1>
+          <div class="subtitle">Project Coordinator & Junior Project Manager</div>
+
+          <div class="badge-row">
+            <span class="badge highlight">MSc Project Management</span>
+            <span class="badge">Agile & Waterfall</span>
+            <span class="badge">Digital Projects</span>
+            <span class="badge">Corporate Projects</span>
+          </div>
+
+          <div class="card">
+            <h2>Professional Summary</h2>
+            <ul class="summary-list">
+              <li>MSc in Project Management with Mechanical Engineering background</li>
+              <li>Hands-on experience supporting Agile teams in digital project environments</li>
+              <li>Proficient in Jira, Trello, Monday.com, and project management methodologies</li>
+              <li>Skilled in risk management, RAID logs, stakeholder communication, and status reporting</li>
+              <li>Expertise in both Agile (Scrum/Kanban) and Waterfall methodologies</li>
+              <li>Strong documentation, workflow optimization, and process improvement capabilities</li>
+            </ul>
+
+            <div class="hero-actions" style="margin-top: 16px;">
+              <a class="btn-primary" href="Rajkumar%20Palanivel%20Resume%20editing%20version.pdf" download>
+                <span class="icon">⬇</span>
+                <span>Download CV</span>
+              </a>
+              <a class="btn-secondary" href="mailto:rajkumarpalanivelofficial@gmail.com">
+                <span class="dot"></span>
+                Email Me
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <section class="reveal" id="experience">
+          <h2>Experience</h2>
+
+          <div class="card">
+            <div class="experience-item">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">Project Coordinator Intern</div>
+                  <div class="exp-company">Pluto Technologies – High Wycombe, UK</div>
+                </div>
+                <div class="exp-meta">Jul 2023 – Present</div>
+              </div>
+              <ul>
+                <li>Supported Agile teams through sprint planning, daily stand-ups, backlog grooming, and retrospectives</li>
+                <li>Managed Jira, Trello, and Monday.com boards to assign work, track progress, and rebalance priorities</li>
+                <li>Created and maintained risk registers, RAID logs, Gantt-style plans, and stakeholder updates</li>
+                <li>Drafted weekly status reports translating technical progress for technical and non-technical stakeholders</li>
+                <li>Contributed process improvement ideas in retrospectives and knowledge-sharing sessions</li>
+              </ul>
+              <div class="tagline">Tools: Jira, Trello, Monday.com, Google Workspace, Notion, Confluence, Slack</div>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 12px;">
+            <div class="experience-item">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">Project Management Intern</div>
+                  <div class="exp-company">London Success Academy</div>
+                </div>
+                <div class="exp-meta">Oct 2024 · 1 Month</div>
+              </div>
+              <ul>
+                <li>Executed corporate project following Waterfall methodology for policy information letter corrections</li>
+                <li>Prepared governance documentation including Project Initiation Document (PID), Cost Estimation, and RAID Logs</li>
+                <li>Conducted stakeholder workshops and managed Impact Analysis (IA) documentation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 12px;">
+            <div class="experience-item">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">Production Engineer – Graduate Trainee</div>
+                  <div class="exp-company">New Tech Precision Products Pvt. Ltd. – Chennai, India</div>
+                </div>
+                <div class="exp-meta">Apr 2022 – Mar 2023</div>
+              </div>
+              <ul>
+                <li>Operated CNC and HMC machinery across shifts to meet daily automotive component production targets</li>
+                <li>Performed quality inspections using Vernier Calipers, Micrometres, and Dial Gauges</li>
+                <li>Reviewed technical drawings and process instructions to ensure proper machine configuration</li>
+                <li>Recorded production metrics including daily output, downtime, rework rates, and tool wear</li>
+                <li>Maintained accurate handover reports and adhered to ISO 9001:2015 procedures</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="reveal" id="projects">
+          <h2>Projects</h2>
+
+          <div class="card">
+            <div class="experience-item">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">Multi-Functional Agricultural Vehicle</div>
+                  <div class="exp-company">Affordable Multi-Operation Farm Mechanization System</div>
+                </div>
+              </div>
+              <ul>
+                <li>Managed end-to-end project lifecycle from concept to fabrication</li>
+                <li>Coordinated cross-functional team activities and resource allocation</li>
+                <li>Developed project timeline and tracked milestones for three integrated farming operations</li>
+                <li>Documented design specifications, testing procedures, and cost optimization strategies</li>
+                <li>Delivered project within budget constraints while maintaining quality standards</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card" style="margin-top: 12px;">
+            <div class="experience-item">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">Portable Hydraulic Press</div>
+                  <div class="exp-company">Design and Fabrication Project</div>
+                </div>
+              </div>
+              <ul>
+                <li>Planned and executed design and fabrication project with focus on cost optimization</li>
+                <li>Coordinated manufacturing processes including welding and grinding operations</li>
+                <li>Managed project documentation and quality control procedures</li>
+                <li>Ensured compliance with structural design requirements and safety standards</li>
+                <li>Delivered portable hydraulic press system meeting 0.25-ton force specifications</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="reveal" id="education">
+          <h2>Education</h2>
+
+          <div class="card">
+            <div class="experience-item">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">MSc Project Management</div>
+                  <div class="exp-company">BPP University, UK</div>
+                </div>
+                <div class="exp-meta">2023 – 2024</div>
+              </div>
+            </div>
+
+            <div class="experience-item" style="margin-top: 16px;">
+              <div class="exp-header">
+                <div>
+                  <div class="exp-role">BE Mechanical Engineering</div>
+                  <div class="exp-company">Anna University, India</div>
+                </div>
+                <div class="exp-meta">2018 – 2022</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <aside class="right-pane">
+        <section class="reveal" id="skills">
+          <h2>Core Skills</h2>
+          <div class="card">
+            <h3>Methodologies</h3>
+            <div class="pill-list">
+              <span class="pill primary">Agile</span>
+              <span class="pill primary">Scrum</span>
+              <span class="pill primary">Kanban</span>
+              <span class="pill primary">Waterfall</span>
+            </div>
+
+            <h3 style="margin-top: 16px;">Project Management</h3>
+            <div class="pill-list">
+              <span class="pill">Project Coordination</span>
+              <span class="pill">Sprint Planning</span>
+              <span class="pill">Backlog Grooming</span>
+              <span class="pill">Risk Management</span>
+              <span class="pill">RAID Logs</span>
+              <span class="pill">Stakeholder Communication</span>
+              <span class="pill">Status Reporting</span>
+              <span class="pill">Process Improvement</span>
+              <span class="pill">Governance Documentation</span>
+            </div>
+
+            <h3 style="margin-top: 16px;">Tools & Software</h3>
+            <div class="pill-list">
+              <span class="pill">Jira</span>
+              <span class="pill">Trello</span>
+              <span class="pill">Monday.com</span>
+              <span class="pill">MS Project</span>
+              <span class="pill">Confluence</span>
+              <span class="pill">Notion</span>
+              <span class="pill">Google Workspace</span>
+              <span class="pill">Microsoft Excel</span>
+              <span class="pill">Google Sheets</span>
+              <span class="pill">Slack</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <h2>Certifications</h2>
+          <div class="card">
+            <ul>
+              <li>Google Project Management Specialization – Coursera | RAJKUMAR PALANIVEL | Completed July 29, 2025<br />
+                <span style="font-size: 0.85rem; color: var(--muted); margin-left: 16px; display: block; margin-top: 4px;">Skills: Project Management, Agile, Stakeholder Management, Risk Management</span>
+              </li>
+              <li>JPMorgan Chase & Co. Agile Job Simulation – Forage (Aug 2024)</li>
+              <li>Cognizant Agile Methodology Job Simulation – Forage (Jun 2024)</li>
+              <li>Accenture NA Project Management Job Simulation – Forage (Mar 2024)</li>
+              <li>Project Management Foundations – LinkedIn</li>
+              <li>Agile Software Development: Scrum for Developers – LinkedIn</li>
+              <li>SEO Principles – SEMrush (Jan 2024)</li>
+              <li>Student Member, Association for Project Management (APM)</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <h2>Key Achievements</h2>
+          <div class="card">
+            <ul>
+              <li>Successfully supported Agile teams through multiple sprint cycles</li>
+              <li>Maintained accuracy in RAID log documentation and risk tracking</li>
+              <li>Improved team workflow efficiency through process optimization initiatives</li>
+              <li>Delivered weekly status reports consistently meeting stakeholder requirements</li>
+              <li>Completed structured 1-year production engineering training program</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="reveal">
+          <h2>Location & Availability</h2>
+          <div class="card">
+            <ul>
+              <li>Based in High Wycombe, UK</li>
+              <li>Open to remote and hybrid opportunities</li>
+              <li>Available for Project Coordinator and Junior PM roles</li>
+              <li>Interested in Digital, IT, and Corporate project environments</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="reveal" id="contact">
+          <h2>Contact</h2>
+          <div class="card">
+            <address class="profile-text" style="font-style: normal;">
+              High Wycombe, UK<br />
+              <a href="tel:+447776912786" style="color: var(--accent); text-decoration: none; margin-top: 8px; display: inline-block;">+44 7776 912786</a><br />
+              <a href="mailto:rajkumarpalanivelofficial@gmail.com" style="color: var(--accent); text-decoration: none; margin-top: 4px; display: inline-block;">
+                rajkumarpalanivelofficial@gmail.com
+              </a>
+            </address>
+          </div>
+        </section>
+      </aside>
+
+      <footer class="footer">
+        <span>© <span id="year"></span> Rajkumar Palanivel</span>
+        <span>Seeking opportunities as a Project Coordinator / Junior PM</span>
+      </footer>
     </div>
-  </header>
+  </div>
 
-  <main>
-    <section class="hero container">
-      <div class="left">
-        <h2>High Wycombe, UK</h2>
-        <p class="lead">Highly motivated professional with an <strong>MSc in Project Management</strong> and immediate availability for regulatory or remediation-focused assignments. Proven ability to handle high-volume documentation and ensure quality control, with experience creating RAID Logs and detailed impact assessments. Seeking a Case Handler or Case Administrator role where strong analytical ability and commitment to structured, quality-focused work can support critical customer outcomes and redress processes.</p>
-      </div>
-      <div class="right">
-        <a class="btn" href="#contact">Get in touch</a>
-        <a class="btn ghost" href="#experience">View experience</a>
-      </div>
-    </section>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-    <section id="skills" class="container card">
-      <h3>Key Skills & Tools</h3>
-      <ul>
-        <li><strong>Regulatory & Remediation Focus:</strong> Quality Control/Assurance, Detailed Documentation, Impact Analysis (IA) Management, Risk & Issue Management (RAID), Compliance Adherence, ISO 9001:2015 Procedures</li>
-        <li><strong>Project Management:</strong> Project Coordination, Risk & Workflow Management, Stakeholder Communication, Project Planning</li>
-        <li><strong>Methodologies:</strong> Agile (Scrum, Kanban), Waterfall (PID/RAID document creation), Hybrid</li>
-        <li><strong>Software & Collaboration:</strong> Jira, Trello, Monday.com, Microsoft Excel, MS Project, Notion, Slack, Confluence, AutoCAD/SolidWorks, Asana, Microsoft Teams, Tableau</li>
-        <li><strong>Technical/Engineering:</strong> CNC/HMC Operations, Quality Inspection Tolerance Checks, Precision Measurement Tools</li>
-      </ul>
-    </section>
+    const revealEls = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.12,
+      }
+    );
 
-    <section id="experience" class="container">
-      <h3>Professional Experience</h3>
-
-      <article class="card">
-        <h4>Project Coordinator - Intern</h4>
-        <p class="muted">Pluto Technologies — High Wycombe, UK | July 2023 - Present</p>
-        <ul>
-          <li>Supported Agile teams with end-to-end sprint activities including planning, stand-ups, backlog grooming and retrospectives.</li>
-          <li>Managed digital workspaces (Jira, Trello, Monday.com) to assign tasks, track progress, and adjust priorities in a high-volume environment.</li>
-          <li>Created and updated project documentation such as risk registers, Gantt charts, and RAID logs.</li>
-          <li>Drafted weekly project reports translating technical updates into summaries for technical and non-technical stakeholders.</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h4>Project Management Intern</h4>
-        <p class="muted">London Success Academy (Corporate Internship) — Oct 2025 (1 month)</p>
-        <ul>
-          <li>Executed a corporate project using Waterfall methodology to correct policy information letters for investment products.</li>
-          <li>Prepared governance documentation including PID, cost estimation and RAID logs, and led stakeholder workshops for Impact Analysis (IA).</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h4>Production Engineer - Graduate Trainee</h4>
-        <p class="muted">New Tech Precision Products Pvt. Ltd. — Chennai, India | Apr 2022 - Mar 2023</p>
-        <ul>
-          <li>Led production teams, ensuring compliance with quality standards, safety protocols and project deadlines, contributing to an 8% boost in production output.</li>
-          <li>Performed high-accuracy quality inspections using Vernier Calipers, Micrometres and Dial Gauges.</li>
-          <li>Operated CNC and HMC machinery and assisted senior engineers with tooling, fixture changes and first-piece approvals.</li>
-          <li>Adhered to ISO 9001:2015 procedures related to documentation and shop-floor discipline.</li>
-        </ul>
-      </article>
-    </section>
-
-    <section id="education" class="container card">
-      <h3>Education</h3>
-      <p><strong>MSc Project Management</strong> — BPP University, UK (2023-2024)</p>
-      <p><strong>BE Mechanical Engineering</strong> — Anna University, India (2018-2022)</p>
-    </section>
-
-    <section id="certs" class="container card">
-      <h3>Certifications & Simulations</h3>
-      <ul>
-        <li>JPMorgan Chase & Co. Agile Job Simulation on Forage (Aug 2024)</li>
-        <li>Cognizant Agile Methodology Job Simulation on Forage (Jun 2024)</li>
-        <li>Accenture North America Project Management Job Simulation on Forage (Mar 2024)</li>
-        <li>Project Management Foundations — LinkedIn</li>
-        <li>Agile Software Development: Scrum for Developers — LinkedIn</li>
-        <li>SEO Principles — SEMrush (Jan 2024)</li>
-        <li>Student Member of the Association for Project Management (APM)</li>
-      </ul>
-    </section>
-
-    <section id="contact" class="container card">
-      <h3>Contact</h3>
-      <p>High Wycombe, UK</p>
-      <p>Phone: <a href="tel:+447776912786">+44 7776912786</a></p>
-      <p>Email: <a href="mailto:rajkumarpalanivelofficial@gmail.com">rajkumarpalanivelofficial@gmail.com</a></p>
-      <p id="linkedin">LinkedIn: <a href="[LinkedIn Profile Link]">[LinkedIn Profile Link]</a></p>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <small>© <span id="year"></span> Rajkumar Palanivel — Built with care</small>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+    revealEls.forEach((el) => io.observe(el));
+  </script>
 </body>
 </html>
