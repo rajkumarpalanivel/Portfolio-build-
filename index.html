@@ -8,311 +8,306 @@
     :root {
       --bg: #ffffff;
       --accent: #0ea5e9;
-      --accent-dark: #0369a1;
+      --accent-soft: rgba(14, 165, 233, 0.1);
+      --accent-strong: #0284c7;
       --text: #1f2937;
       --muted: #6b7280;
       --border: #e5e7eb;
-      --radius: 12px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --transition: 200ms ease-out;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
-    body { background: #f3f4f6; color: var(--text); line-height: 1.5; padding: 20px; }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+
+    body {
+      background: #f8fafc;
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
 
     .page-shell {
-      max-width: 1100px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 1200px;
       background: white;
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.05);
       border: 1px solid var(--border);
     }
 
-    /* HEADER SECTION */
-    .header-main {
-      padding: 40px;
-      background: linear-gradient(to right, #f8fafc, #ffffff);
-      border-bottom: 1px solid var(--border);
+    /* CREATIVE HEADER AREA */
+    .nav-banner {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 20px;
+      align-items: center;
+      padding: 20px 40px;
+      background: white;
+      border-bottom: 1px solid var(--border);
     }
 
-    .name-area h1 {
-      font-size: 2.5rem;
-      text-transform: uppercase;
-      letter-spacing: -1px;
-      color: #111827;
-      line-height: 1;
-    }
-
-    .name-area h2 {
-      font-size: 1.1rem;
-      color: var(--accent-dark);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-top: 8px;
-    }
-
-    .name-area p {
-      color: var(--muted);
-      font-weight: 500;
-      margin-top: 4px;
-    }
-
-    .header-nav {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 12px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 15px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { 
+      text-decoration: none; 
+      color: var(--muted); 
+      font-size: 0.8rem; 
+      text-transform: uppercase; 
       letter-spacing: 1px;
+      font-weight: 600;
+      transition: var(--transition);
     }
-
-    .nav-links a {
-      text-decoration: none;
-      color: var(--text);
-      transition: color 0.2s;
-    }
-
     .nav-links a:hover { color: var(--accent); }
 
     .status-badge {
-      background: #dcfce7;
-      color: #166534;
+      background: #ecfdf5;
+      color: #059669;
       padding: 6px 14px;
-      border-radius: 999px;
+      border-radius: var(--radius-pill);
       font-size: 0.75rem;
       font-weight: 700;
       text-transform: uppercase;
-      border: 1px solid #bbf7d0;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      border: 1px solid #10b98133;
     }
 
-    .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse 2s infinite; }
-
-    @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
-
-    /* LAYOUT */
-    .content-grid {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr;
+    /* HERO SECTION */
+    .hero {
+      padding: 60px 40px;
+      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 100%);
+      text-align: left;
     }
 
-    .main-col { padding: 40px; border-right: 1px solid var(--border); }
-    .side-col { padding: 40px; background: #fafafa; }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
 
-    section { margin-bottom: 40px; }
-    h3 {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
+    .hero .role-title {
+      font-size: 1.4rem;
+      color: var(--accent-strong);
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .hero .academic-line {
+      font-size: 1rem;
       color: var(--muted);
-      margin-bottom: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* LAYOUT PANES */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      border-top: 1px solid var(--border);
+    }
+
+    .pane { padding: 40px; }
+    .left-pane { border-right: 1px solid var(--border); }
+    .right-pane { background: #fafafa; }
+
+    h2 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--muted);
+      margin-bottom: 24px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
-    h3::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+    h2::after { content: ""; height: 1px; background: var(--border); flex-grow: 1; }
 
     .card {
-      margin-bottom: 25px;
-    }
-
-    .card-title { font-weight: 700; font-size: 1.1rem; color: #111827; }
-    .card-subtitle { color: var(--accent-dark); font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; }
-    .card-meta { font-size: 0.8rem; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; }
-
-    ul { list-style: none; }
-    li { position: relative; padding-left: 18px; font-size: 0.9rem; margin-bottom: 6px; color: #4b5563; }
-    li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
-
-    /* SKILLS PILLS */
-    .pill-container { display: flex; flex-wrap: wrap; gap: 8px; }
-    .pill {
       background: white;
       border: 1px solid var(--border);
-      padding: 4px 12px;
-      border-radius: 6px;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      margin-bottom: 24px;
+      transition: var(--transition);
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); border-color: var(--accent); }
+
+    .exp-title { font-weight: 700; font-size: 1.1rem; color: #0f172a; }
+    .exp-sub { color: var(--accent-strong); font-weight: 500; font-size: 0.9rem; margin-bottom: 12px; }
+    .exp-date { font-size: 0.75rem; color: var(--muted); text-transform: uppercase; font-weight: 600; }
+
+    ul { list-style: none; margin-top: 10px; }
+    li { position: relative; padding-left: 20px; font-size: 0.9rem; margin-bottom: 8px; color: #475569; }
+    li::before { content: "→"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+
+    .pill-box { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
+    .pill {
+      background: #f1f5f9;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
       font-size: 0.75rem;
+      color: #475569;
       font-weight: 600;
-      color: var(--text);
+      border: 1px solid #e2e8f0;
     }
-    .pill.tech { border-left: 3px solid var(--accent); }
+    .pill.tech { background: var(--accent-soft); color: var(--accent-strong); border-color: #0ea5e933; }
 
-    .btn-action {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #111827;
+    .contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #0f172a;
       color: white;
+      padding: 12px 24px;
+      border-radius: var(--radius-pill);
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.8rem;
       font-weight: 600;
-      transition: background 0.2s;
+      font-size: 0.9rem;
+      margin-top: 20px;
     }
-    .btn-action:hover { background: var(--accent-dark); }
 
-    @media (max-width: 850px) {
-      .content-grid { grid-template-columns: 1fr; }
-      .main-col { border-right: none; border-bottom: 1px solid var(--border); }
-      .header-main { flex-direction: column; align-items: flex-start; }
-      .header-nav { align-items: flex-start; }
+    @media (max-width: 900px) {
+      .main-grid { grid-template-columns: 1fr; }
+      .left-pane { border-right: none; border-bottom: 1px solid var(--border); }
+      .hero h1 { font-size: 2.5rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="page-shell">
-    <header class="header-main">
-      <div class="name-area">
-        <h1>Rajkumar Palanivel</h1>
-        <h2>Project & Production Engineer</h2>
-        <p>MSc Project Management | Mechanical Engineering</p>
-      </div>
-      
-      <div class="header-nav">
-        <nav class="nav-links">
-          <a href="#profile">Profile</a>
-          <a href="#experience">Experience</a>
-          <a href="#contact">Contact</a>
-        </nav>
-        <div class="status-badge">
-          <span class="status-dot"></span>
-          Available Immediately
-        </div>
-        <a href="https://drive.google.com/file/d/1zNNwzqcQnOt2SroPY1Sn6QlHSGmN_JQx/view?usp=sharing" class="btn-action">Download Technical CV</a>
-      </div>
-    </header>
-
-    <div class="content-grid">
-      <main class="main-col">
-        <section id="profile">
-          <h3>01 Professional Profile</h3>
-          <p style="font-size: 0.95rem; color: #374151;">
-            Mechanical Engineer with a postgraduate degree in Project Management and hands-on experience in <strong>CNC machining, quality inspection, and NPI (New Product Introduction)</strong>. 
-            I bridge the gap between technical fabrication and strategic coordination, combining precision engineering with Agile/Waterfall methodologies to optimize production workflows.
-          </p>
-        </section>
-
-        <section id="projects">
-          <h3>02 Engineering Projects</h3>
-          
-          <div class="card">
-            <div class="card-title">Multi-Functional Agricultural Vehicle</div>
-            <div class="card-subtitle">NPI Design & Fabrication Lead</div>
-            <ul>
-              <li>Designed complex assemblies in <strong>SolidWorks</strong>, performing material selection and load calculations.</li>
-              <li>Coordinated end-to-end fabrication: cutting, welding, and mechanical assembly.</li>
-              <li>Outcome: Functional 3-in-1 prototype reducing farm manual labor requirements.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-title">Portable Hydraulic Press (0.25 Ton)</div>
-            <div class="card-subtitle">Mechanical Design Support</div>
-            <ul>
-              <li>Developed compact frame and hydraulic layout using CAD software.</li>
-              <li>Conducted precision dimensional inspections using Verniers and Micrometers.</li>
-              <li>Ensured all welds and structural alignments met workshop safety standards.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="experience">
-          <h3>03 Experience</h3>
-          
-          <div class="card">
-            <div class="card-title">Project Coordinator Intern</div>
-            <div class="card-subtitle">Pluto Technologies — High Wycombe, UK</div>
-            <div class="card-meta">July 2023 – March 2026</div>
-            <ul>
-              <li>Managed engineering workflows in <strong>Jira & Monday.com</strong>, translating technical requirements for stakeholders.</li>
-              <li>Maintained RAID logs and Gantt charts to ensure project timeline adherence.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <div class="card-title">Production Engineer – Graduate Trainee</div>
-            <div class="card-subtitle">New Tech Precision Products — Chennai, India</div>
-            <div class="card-meta">Apr 2022 – Mar 2023</div>
-            <ul>
-              <li>Operated <strong>CNC/HMC machines</strong> to hit rigorous daily automotive production targets.</li>
-              <li>Executed 100% quality checks using Micrometers, Vernier Calipers, and Dial Gauges.</li>
-              <li>Strictly followed ISO 9001:2015 documentation and safety protocols.</li>
-            </ul>
-          </div>
-        </section>
-      </main>
-
-      <aside class="side-col">
-        <section>
-          <h3>Technical Toolkit</h3>
-          <div class="pill-container">
-            <span class="pill tech">CNC & HMC Operation</span>
-            <span class="pill tech">SolidWorks / AutoCAD</span>
-            <span class="pill tech">Precision Inspection</span>
-            <span class="pill tech">Mechanical Assembly</span>
-            <span class="pill tech">GD&T Interpretation</span>
-            <span class="pill tech">Root Cause Analysis</span>
-            <span class="pill">Jira / Trello</span>
-            <span class="pill">MS Excel (Advanced)</span>
-            <span class="pill">Lean / 5S</span>
-          </div>
-        </section>
-
-        <section>
-          <h3>Certifications</h3>
-          <div class="card">
-            <div class="card-subtitle" style="margin-bottom: 2px;">JPMorgan Chase</div>
-            <p style="font-size: 0.8rem; margin-bottom: 10px;">Agile Job Simulation</p>
-            
-            <div class="card-subtitle" style="margin-bottom: 2px;">LinkedIn Learning</div>
-            <p style="font-size: 0.8rem; margin-bottom: 10px;">Project Management Foundations</p>
-
-            <div class="card-subtitle" style="margin-bottom: 2px;">Google</div>
-            <p style="font-size: 0.8rem;">PM Specialization (In Progress)</p>
-          </div>
-        </section>
-
-        <section id="education">
-          <h3>Education</h3>
-          <div class="card">
-            <p><strong>MSc Project Management</strong><br>BPP University, UK</p>
-            <p style="margin-top: 10px;"><strong>BE Mechanical Engineering</strong><br>Anna University, India</p>
-          </div>
-        </section>
-
-        <section id="contact">
-          <h3>Contact</h3>
-          <div class="card" style="font-size: 0.9rem;">
-            <p>📍 High Wycombe, UK</p>
-            <p>📞 <a href="tel:+447776912786" style="color: var(--accent); text-decoration: none;">+44 7776 912786</a></p>
-            <p>📧 <a href="mailto:rajkumarpalanivelofficial@gmail.com" style="color: var(--accent); text-decoration: none;">Email Me</a></p>
-          </div>
-        </section>
-      </aside>
+<div class="page-shell">
+  <nav class="nav-banner">
+    <div class="nav-links">
+      <a href="#profile">Profile</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
     </div>
+    <div class="status-badge">Available Immediately</div>
+  </nav>
 
-    <footer style="padding: 20px; text-align: center; font-size: 0.75rem; color: var(--muted); border-top: 1px solid var(--border);">
-      © <span id="year"></span> Rajkumar Palanivel | Specialized in Engineering & Production Operations
-    </footer>
+  <header class="hero">
+    <h1>Rajkumar Palanivel</h1>
+    <p class="role-title">Project & Production Engineer</p>
+    <p class="academic-line">MSc Project Management | Mechanical Engineering</p>
+    
+    <div style="margin-top: 30px; display: flex; gap: 15px;">
+        <a href="mailto:rajkumarpalanivelofficial@gmail.com" class="contact-btn">Hire Me Now</a>
+        <a href="https://drive.google.com/file/d/1zNNwzqcQnOt2SroPY1Sn6QlHSGmN_JQx/view?usp=sharing" target="_blank" class="contact-btn" style="background:transparent; color:#0f172a; border: 1px solid #0f172a;">View Full CV</a>
+    </div>
+  </header>
+
+  <div class="main-grid">
+    <main class="pane left-pane">
+      <section id="profile">
+        <h2>Professional Profile</h2>
+        <p style="color: #475569; font-size: 1rem; line-height: 1.8;">
+          A precision-focused <strong>Mechanical Engineer</strong> with a Master’s in <strong>Project Management</strong>. I bridge the gap between technical shop-floor operations and high-level project strategy. Expert in CNC/HMC environments, ISO 9001 standards, and Agile/Waterfall delivery. I thrive on translating complex engineering drawings into tangible, high-quality production outputs.
+        </p>
+      </section>
+
+      <section id="experience" style="margin-top: 40px;">
+        <h2>Professional Experience</h2>
+        
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div class="exp-title">Project Coordinator Intern</div>
+              <div class="exp-sub">Pluto Technologies – High Wycombe, UK</div>
+            </div>
+            <div class="exp-date">Jul 2023 – Mar 2026</div>
+          </div>
+          <ul>
+            <li>Bridged technical development and project timelines using <strong>Jira & Monday.com</strong>.</li>
+            <li>Optimized Agile sprint cycles (Daily Stand-ups, Retrospectives) for startup-speed delivery.</li>
+            <li>Maintained critical <strong>RAID logs</strong> and Risk Registers to prevent production bottlenecks.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div class="exp-title">Production Engineer – Graduate Trainee</div>
+              <div class="exp-sub">New Tech Precision Products – Chennai, India</div>
+            </div>
+            <div class="exp-date">Apr 2022 – Mar 2023</div>
+          </div>
+          <ul>
+            <li>Managed high-volume CNC/HMC machining for automotive components under <strong>ISO 9001:2015</strong>.</li>
+            <li>Conducted precision quality checks using <strong>Vernier Calipers, Micrometers, and Dial Gauges</strong>.</li>
+            <li>Reduced machine downtime by implementing early-fault detection and tooling adjustments.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" style="margin-top: 40px;">
+        <h2>Key Engineering Projects</h2>
+        <div class="card">
+          <div class="exp-title">Multi-Functional Agricultural Vehicle</div>
+          <p style="font-size: 0.85rem; margin-top: 5px; color: var(--muted);">SolidWorks | AutoCAD | Fabrication</p>
+          <ul>
+            <li>Engineered a 3-in-1 mechanization system (Ploughing, Seeding, Spraying).</li>
+            <li>Managed full NPI (New Product Introduction) lifecycle, from CAD stress-testing to welding and assembly.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <aside class="pane right-pane">
+      <section id="skills">
+        <h2>Technical Arsenal</h2>
+        <h3>Engineering</h3>
+        <div class="pill-box">
+          <span class="pill tech">CNC/HMC Machining</span>
+          <span class="pill tech">GD&T</span>
+          <span class="pill tech">SolidWorks</span>
+          <span class="pill tech">AutoCAD</span>
+          <span class="pill tech">Precision Metrology</span>
+          <span class="pill tech">Tooling & Offsets</span>
+          <span class="pill tech">BOM Management</span>
+        </div>
+
+        <h3 style="margin-top: 25px;">Management</h3>
+        <div class="pill-box">
+          <span class="pill">Agile (Scrum/Kanban)</span>
+          <span class="pill">Waterfall</span>
+          <span class="pill">Risk (RAID) Logs</span>
+          <span class="pill">Budget Estimation</span>
+          <span class="pill">Jira/Monday.com</span>
+        </div>
+      </section>
+
+      <section style="margin-top: 40px;">
+        <h2>Certifications</h2>
+        <div class="card" style="padding: 15px;">
+          <p style="font-size: 0.85rem; font-weight: 700;">Google Project Management Specialization</p>
+          <p style="font-size: 0.75rem; color: var(--muted);">Coursera | Completed Jul 2025</p>
+        </div>
+        <div class="card" style="padding: 15px;">
+          <p style="font-size: 0.85rem; font-weight: 700;">JPMorgan Chase Agile Simulation</p>
+          <p style="font-size: 0.75rem; color: var(--muted);">Forage | 2024</p>
+        </div>
+      </section>
+
+      <section id="contact" style="margin-top: 40px;">
+        <h2>Connect</h2>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;">📍 High Wycombe, UK</p>
+        <p style="font-size: 0.9rem; margin-bottom: 10px;">📞 +44 7776 912786</p>
+        <a href="mailto:rajkumarpalanivelofficial@gmail.com" style="color: var(--accent); text-decoration: none; font-weight: 700; font-size: 0.9rem;">rajkumarpalanivelofficial@gmail.com</a>
+      </section>
+    </aside>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <footer style="padding: 20px; text-align: center; font-size: 0.8rem; color: var(--muted); border-top: 1px solid var(--border);">
+    © <span id="year"></span> Rajkumar Palanivel | Designed for Engineering Excellence
+  </footer>
+</div>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
