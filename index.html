@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --bg-page: #f1f5f9; /* Engineering Slate Light */
+      --bg-page: #f1f5f9; 
       --bg-card: #ffffff;
-      --accent: #2563eb; /* Industrial Blue */
+      --accent: #2563eb; 
       --text-main: #0f172a;
       --text-muted: #64748b;
       --border: #cbd5e1;
@@ -21,7 +21,7 @@
     body {
       background-color: var(--bg-page);
       background-image: radial-gradient(#cbd5e1 0.8px, transparent 0.8px);
-      background-size: 20px 20px; /* Technical Grid Paper Effect */
+      background-size: 20px 20px; 
       color: var(--text-main);
       padding: 40px 20px;
       line-height: 1.6;
@@ -77,6 +77,9 @@
     .status-tag { display: flex; align-items: center; gap: 8px; color: #059669; font-weight: 800; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 15px; }
     .dot { width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981; animation: pulse 2s infinite; }
 
+    .contact-link { color: #ffffff; text-decoration: none; font-weight: 600; transition: color 0.2s; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .contact-link:hover { color: #bfdbfe; border-bottom-color: #bfdbfe; }
+
     @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
 
     @media (max-width: 950px) { .container { grid-template-columns: 1fr; } }
@@ -118,7 +121,6 @@
         <span class="pill">Advanced Excel</span>
         <span class="pill">RAID Logs</span>
         <span class="pill">Risk Registers</span>
-        <span class="pill">PID Development</span>
       </div>
     </div>
 
@@ -131,10 +133,6 @@
       <div style="margin-bottom: 15px;">
         <p style="font-weight: 700; font-size: 0.95rem;">Agile Job Simulation</p>
         <p style="font-size: 0.8rem; color: var(--text-muted);">JPMorgan Chase & Co. | Forage</p>
-      </div>
-      <div>
-        <p style="font-weight: 700; font-size: 0.95rem;">Excel Essential Training</p>
-        <p style="font-size: 0.8rem; color: var(--text-muted);">LinkedIn Learning | Pivot Tables & Metrics</p>
       </div>
     </div>
   </aside>
@@ -187,18 +185,16 @@
 
     <div class="card">
       <h2>Engineering Projects</h2>
-      
       <div style="margin-bottom: 25px;">
         <h3 style="color: var(--accent);">Multi-Functional Agricultural Vehicle (NPI Lead)</h3>
         <p style="font-size: 0.95rem; color: #475569; margin-top: 8px;">
-          Led the full project lifecycle from <strong>SolidWorks</strong> conceptual design to physical fabrication. Coordinated material selection (mild steel), load calculations, and welding operations for a functional 3-in-1 farm prototype.
+          Led the full project lifecycle from <strong>SolidWorks</strong> conceptual design to physical fabrication. Coordinated material selection, load calculations, and welding operations.
         </p>
       </div>
-
       <div>
         <h3 style="color: var(--accent);">Portable Hydraulic Press (0.25 Ton)</h3>
         <p style="font-size: 0.95rem; color: #475569; margin-top: 8px;">
-          Executed design and fabrication of a compact hydraulic system. Verified structural factors of safety through <strong>Fusion 360</strong> stress testing and precision dimensional inspection of the press bed.
+          Executed design and fabrication of a compact hydraulic system. Verified structural factors of safety through <strong>Fusion 360</strong> stress testing.
         </p>
       </div>
     </div>
@@ -211,13 +207,24 @@
           <p style="font-weight: 600;">High Wycombe, UK</p>
         </div>
         <div>
-          <p style="font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px;">Direct Contact</p>
+          <p style="font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px;">Direct Phone</p>
           <p style="font-weight: 600;">+44 7776 912786</p>
+        </div>
+        <div>
+          <p style="font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px;">Email Address</p>
+          <p style="font-weight: 600;">
+            <a href="mailto:rajkumarpalanivelofficial@gmail.com" class="contact-link">rajkumarpalanivelofficial@gmail.com</a>
+          </p>
+        </div>
+        <div>
+          <p style="font-size: 0.75rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 1px;">LinkedIn Profile</p>
+          <p style="font-weight: 600;">
+            <a href="https://www.linkedin.com/in/rajkumar-palanivel" target="_blank" class="contact-link">rajkumar-palanivel</a>
+          </p>
         </div>
       </div>
     </div>
   </main>
-
 </div>
 
 <footer style="text-align: center; padding: 40px; color: var(--text-muted); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px;">
